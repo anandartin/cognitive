@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #1a1a2e;
+  --color-primary: #4f46e5;
+  --color-primary-light: #6366f1;
+  --color-primary-lighter: #e0e7ff;
+  --color-primary-dark: #3730a3;
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+  --color-muted: #6b7280;
+  --color-muted-light: #9ca3af;
+  --color-surface: #f9fafb;
+  --color-surface-hover: #f3f4f6;
+  --color-accent: #8b5cf6;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Pipeline animation */
+@keyframes pipeline-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes pipeline-flow {
+  0% { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-pipeline-pulse {
+  animation: pipeline-pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Phone frame */
+.phone-frame {
+  border-radius: 40px;
+  border: 8px solid #1a1a2e;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #1a1a2e;
+  border-radius: 0 0 16px 16px;
+  z-index: 10;
+}
+
+/* Tablet frame */
+.tablet-frame {
+  border-radius: 24px;
+  border: 6px solid #1a1a2e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop frame */
+.desktop-frame {
+  border-radius: 12px;
+  border: 2px solid #d1d5db;
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+}
