@@ -4,10 +4,6 @@ type LogoProps = {
   className?: string;
 };
 
-/**
- * CoachAI mark. Uses the PNG asset from /public/coachai/.
- * Falls back gracefully if the asset isn't present yet.
- */
 export default function Logo({
   size = 56,
   withWordmark = false,
@@ -18,7 +14,7 @@ export default function Logo({
     <div className={`flex flex-col items-center gap-3 ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/coachai/logo.png"
+        src="/coachai/logo.svg"
         alt="CoachAI"
         width={size}
         height={size}
