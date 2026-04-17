@@ -17,22 +17,23 @@ export default function CoachAISplash() {
   }, [router]);
 
   return (
-    <div className="relative flex-1 flex flex-col overflow-hidden">
-      {/* Background image (AI-free stock-style gradient silhouette) */}
+    <div className="relative flex-1 flex flex-col overflow-hidden bg-black">
+      {/* Hero background */}
       <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/coachai/splash-bg.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
+        />
+        {/* Darken bottom + top edges for readability */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 70% at 50% 30%, rgba(195,245,60,0.12) 0%, rgba(0,0,0,0) 55%), linear-gradient(180deg, #1a1f0e 0%, #0a0d05 60%, #000 100%)",
-          }}
-        />
-        {/* Subtle noise / grain via gradient overlays */}
-        <div
-          className="absolute inset-0 opacity-40 mix-blend-overlay"
-          style={{
-            background:
-              "radial-gradient(60% 40% at 30% 70%, rgba(0,0,0,0.6), transparent 60%), radial-gradient(50% 35% at 75% 40%, rgba(0,0,0,0.5), transparent 65%)",
+              "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.75) 100%)",
           }}
         />
       </div>
@@ -40,15 +41,12 @@ export default function CoachAISplash() {
       <div className="relative z-10 flex flex-col h-full">
         <StatusBar />
 
-        <div className="flex-1 flex flex-col items-center justify-center gap-3 coachai-fadein">
-          <Logo size={64} />
-          <span className="text-[#C3F53C] font-extrabold text-[34px] tracking-tight">
-            CoachAI
-          </span>
+        <div className="flex-1 flex flex-col items-center justify-center gap-2 coachai-fadein">
+          <Logo size={72} withWordmark />
         </div>
 
         <div className="pb-10 flex items-center justify-center">
-          <span className="text-white/70 text-[13px] tracking-wide">
+          <span className="text-white/85 text-[13px] tracking-wide">
             Powered by Infosys
           </span>
         </div>
