@@ -1,0 +1,77 @@
+/* CoachAI – iOS-style mobile shell */
+
+.coachai-root {
+  --ca-bg: #000000;
+  --ca-surface: #0b0b0b;
+  --ca-border: #2a2a2c;
+  --ca-text: #ffffff;
+  --ca-text-muted: rgba(255, 255, 255, 0.6);
+  --ca-brand: #c3f53c;
+  --ca-brand-dim: #4c6618;
+  color: var(--ca-text);
+  background: var(--ca-bg);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.coachai-viewport {
+  width: 100%;
+  min-height: 100dvh;
+  background: var(--ca-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Desktop: center a device-sized frame */
+@media (min-width: 520px) {
+  .coachai-root {
+    background: #050505;
+    padding: 24px 0;
+    align-items: center;
+  }
+  .coachai-viewport {
+    width: 393px;
+    min-height: 852px;
+    height: 852px;
+    border-radius: 48px;
+    border: 10px solid #111;
+    box-shadow:
+      0 40px 80px -30px rgba(0, 0, 0, 0.8),
+      0 0 0 1px #1a1a1a inset;
+  }
+  .coachai-viewport::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 30px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 30;
+  }
+}
+
+.coachai-fadein {
+  animation: coachaiFadeIn 320ms ease-out both;
+}
+
+@keyframes coachaiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
